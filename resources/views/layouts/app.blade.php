@@ -30,14 +30,14 @@
                     <li class="menu__toggle"><a href="#" aria-label="Open menu"><i class="fas fa-bars"
                                 aria-label="Open menu"></i></a></li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">
+                        <a class="menu__link" href="/">
                             <i class="fa-regular fa-circle"></i>Home</a>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link" href="#">
                             <i class="fa-regular fa-circle"></i>About SW</a>
                     </li>
-                    <li class="menu__item"><a class="menu__link" href="#">
+                    <li class="menu__item"><a class="menu__link" href="/contactus">
                             <i class="fa-regular fa-circle"></i>Contact Us</a></li>
                     <li class="menu__item view-products">
                         <a class="menu__link" href="#">
