@@ -983,3 +983,62 @@ input[type="search"]::placeholder {
     margin: 0;
     padding-right: 0.5rem;
 }
+
+/* Contact Form Styling */
+
+#newsletter-form input[type="checkbox"]{
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.brand-partnerships__imgs {
+    padding-left: 1rem;
+}
+
+
+.error-message{
+    display: block;
+    font-style: italic;
+    margin-top: 0.5rem;
+    color: red;
+}
+
+input, textarea {
+    border: 1px solid white;
+    border-radius: 1rem;
+    padding-left:0.5rem;
+    width: 25em;
+}
+
+.form-row {
+    color: white;
+  margin: 0.5em 0;
+}
+
+/* Label at start of row followed by input/select */
+.form-row > label:first-child:has(+ input, + select) {
+  display: inline-block;
+  min-width: 10em;
+}
+
+textarea {
+  margin-top: 0.5rem;
+    display: block;
+  width: 36em;
+  min-height: 5.5lh; /* ~5 lines */
+  max-width: 100%; 
+}
+
+.message{
+    display: block;
+    margin-top: 1.5rem;
+    color: var(--orange);
+}
+
+@media screen and (max-width:600px){
+
+    input, textarea {
+        width: 100%;
+    }
+    
+}
