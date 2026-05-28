@@ -1,3 +1,4 @@
+            {{-- //TODO change image file paths to assets --}}
             <section class="banner wrapper__960px">
                 <!-- The Swiper banner using pagination -->
                 <div class="swiper banner__image">
