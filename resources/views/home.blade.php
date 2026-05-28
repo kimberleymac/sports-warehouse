@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Sports Warehouse')
 @section('content')
-    @include('layouts.partials._heroBanner')
+    @include('layouts.partials._hero_banner')
 
 
             <section class="site-main__section featured-products">
