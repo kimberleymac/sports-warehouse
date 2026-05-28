@@ -40,8 +40,8 @@
                     <li class="menu__item"><a class="menu__link" href="/contactus">
                             <i class="fa-regular fa-circle"></i>Contact Us</a></li>
                     <li class="menu__item view-products">
-                        <a class="menu__link" href="#">
-                            <i class="fa-regular fa-circle"></i>View Products</a>
+                        <a class="menu__link" href="/products">
+                            <i class="fa-regular fa-circle"></i>All Products</a>
                     </li>
                     <li class="menu__cart view-cart">
                         <a href="#">
