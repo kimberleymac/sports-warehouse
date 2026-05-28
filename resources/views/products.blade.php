@@ -8,6 +8,8 @@
                 <h2 class="site-main__h2">Products</h2>
                 <div class="featured-products-wrapper">
 
+                    <x-nav-categories/>
+
                     {{-- //TODO Create a partial file for product cards _product_card etc--}}
                     @if (empty($items))
 
