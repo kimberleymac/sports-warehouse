@@ -29,6 +29,9 @@
     /*16px*/
     --category-links: 1rem;
     /*16px*/
+    --product-card-large-title: 1.6rem;
+    /* 25px */
+
 }
 
 .swiper-pagination-bullet{
@@ -82,6 +85,11 @@ a {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -749,7 +757,79 @@ input[type="search"]::placeholder {
     box-shadow: 0  2px 5px var(--orange-75);
 }
 
+/* LARGE product card */
 
+.product-card-large {
+    display: flex;
+}
+
+.product-card-large__image{
+    padding: 1.5rem;
+}
+
+.product-card-large__img{
+    border: var(--border-grey) 1px solid;
+    border-radius: 5px;
+    padding: 0 1rem;
+    width: max-content;
+    max-width: 25rem;
+}
+
+.product-card-large__info{
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.product-card-large__title{
+    font-size: var(--product-card-large-title);
+    padding: 1rem 0;
+
+}
+
+.product-card-large__description{
+    text-wrap: wrap;
+}
+
+.button__cart {
+    display: inline-block;
+
+    color: white;
+    background-color: var(--light-blue);
+
+    font-family: var(--site-font);
+    font-weight: 400;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button__cart:hover,
+.button__cart:focus {
+    background-color: var(--orange);
+}
+
+@media screen and (max-width:700px) {
+    .product-card-large {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    .product-card-large__img{
+    border: var(--border-grey) 1px solid;
+    border-radius: 5px;
+    padding: 0 1rem;
+    width: 100%;
+}
+}
 
 
 /* BRAND PARTNERSHIPS SECTION */
@@ -986,13 +1066,17 @@ input[type="search"]::placeholder {
 
 /* Contact Form Styling */
 
+.contact-us-text{
+    padding-right: 1rem;
+}
+
 #newsletter-form input[type="checkbox"]{
     width: auto;
     margin-right: 0.5rem;
 }
 
 .brand-partnerships__imgs {
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 
@@ -1027,12 +1111,26 @@ textarea {
   width: 36em;
   min-height: 5.5lh; /* ~5 lines */
   max-width: 100%; 
+  margin-right: 2rem;
 }
 
 .message{
     display: block;
     margin-top: 1.5rem;
     color: var(--orange);
+}
+
+.contact-button {
+    background-color: var(--dark-blue);
+    border: 1px white solid;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.contact-button:hover,
+.contact-button:focus {
+    background-color: var(--light-blue);
 }
 
 @media screen and (max-width:600px){
