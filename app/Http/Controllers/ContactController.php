@@ -12,7 +12,7 @@ class ContactController extends Controller
         $validated = $request->validated();
 
         // Retrieve only some of the contact form data
-        $validated = $request->safe()->only(['firstName', 'lastName', 'contactNumber',  'email', 'question']);
+        $validated = $request->safe()->only(['firstName', 'lastName', 'contactNumber',  'email', 'question', 'newsletter']);
 
         //TODO Save data
 
