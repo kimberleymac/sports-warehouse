@@ -41,8 +41,8 @@ class Item extends Model
     {
         return Attribute::get(function () {
             // Check if item has an image and if the file actually exists
-            if ($this->image && File::exists(public_path('images/products/' . $this->image))) {
-                return asset('images/products/' . $this->image);
+            if ($this->photo && File::exists(public_path('images/products/' . $this->photo))) {
+                return asset('images/products/' . $this->photo);
             }
 
             // Fallback to a placeholder image
