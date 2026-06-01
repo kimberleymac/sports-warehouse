@@ -6,8 +6,8 @@
                 <h2 class="site-main__h2 brand-partnerships__h2">Contact Us</h2>
                 <div class="brand-partnerships-wrapper">
                     <div class="brand-partnerships__h2_p">
-                        <p class="brand-partnerships__p brand-partnerships__p--blue">Receive a 15% discount on your
-                            first online order.</p>
+                        <p class="brand-partnerships__p brand-partnerships__p--blue contact-us-text">Receive a 15% discount on your
+                            first order when you sign up for our newsletter.</p>
                     </div>
                     <div class="brand-partnerships__imgs">
                         <div id="newsletter-form">
@@ -45,12 +45,23 @@
                                 <div class="form-row">
                                     <label for="question"> Question? </label>
                                     <textarea name="question"
-                                        id="question" value="{{ old('question') }}"></textarea>
+                                        id="question">{{ old('question') }}</textarea>
                                     @error('question')
                                     <span class="error-message">{{$message}}</span>                                        
                                     @enderror
                                 </div>
 
+                                <div class="form-row">
+                                    <label>
+                                        <input class="checkbox" type="checkbox" name="newsletter" value="yes">
+                                        Sign up to our newsletter
+                                    </label>
+                                    @error('checkbox')
+                                    <span class="error-message">{{$message}}</span>                                        
+                                    @enderror
+                                </div>
+                                
+                                
                                 <div class="form-row">
                                     <label>
                                         <input class="checkbox" type="checkbox" name="termsAndConditions" value="yes" required>
@@ -63,7 +74,7 @@
 
                                 <div class="form-row">
 
-                                    <button type="submit" name="submitRegister">Submit</button>
+                                    <button type="submit" name="submitRegister" class="contact-button">Submit</button>
                                     {{-- If the form is submitted show the success message --}}
                                         @if (session('success'))
                                             <div class="message">{{session('success')}}</div>
