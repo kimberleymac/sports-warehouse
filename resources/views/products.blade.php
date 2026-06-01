@@ -5,30 +5,12 @@
 
 
             <section class="site-main__section featured-products">
-                <h2 class="site-main__h2">Products</h2>
+                <h2 class="site-main__h2">All products</h2>
                 <div class="featured-products-wrapper">
 
-                    <x-nav-categories/>
-
-                    {{-- //TODO Create a partial file for product cards _product_card etc--}}
-                    @if (empty($items))
-
-                    <p>No products to display</p>
+                    @include('layouts.partials._product_cards')
                     
-                    @else
-                    
-                    <ul>
-                    
-                    @foreach ($items as $item)
-                    <li>{{ $item->itemName }}</li>
-                    @endforeach
-                    </ul>
-
-                    @endif
-
-                    
-
-
+                </div> 
             </section>
 
 @endsection
