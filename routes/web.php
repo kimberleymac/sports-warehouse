@@ -7,9 +7,23 @@ use Illuminate\Support\Facades\Route;
 
 //Home
 
+// Route::get('/', function () {
+//     return view('home');
+// });
+
 Route::get('/', function () {
-    return view('home');
-});
+
+    // Get featured events
+    $featuredItems = \App\Models\Item::where("featured", 1)->get();
+
+    // View data
+    $data = [
+        "featuredItems" => $featuredItems
+    ];
+
+    return view('home', $data);
+})->name("home");
+
 
 //Products
 
@@ -19,7 +33,11 @@ Route::get('/products', function () {
 
 Route::get('/products', [ItemController::class, 'index']);
 
+//GET /products/1
 Route::get('/products/{id}', [ItemController::class,'show'])->name("products.show");
+
+// GET /search?keyword=abc
+Route::get('/search', [ItemController::class,'search'])->name("products.search");
 
 // Contact Us
 
