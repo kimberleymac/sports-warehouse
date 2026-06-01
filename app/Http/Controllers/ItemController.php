@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    //TODO dont forget to add price formatted in the product card
-    //{{ $event->price }}
-    //{{ $event->price_formatted }
+    //TODO Fix up this section to automatically add in $ for the products
+    //{{ $item->price }}
+    //{{ $item->price_formatted }
     /**
      * Defines a dynamic price_formatted property (Attribute Accessor)
-     * Usage: $event->price_formatted
+     * Usage: $item->price_formatted
      */
     // protected function priceFormatted(): Attribute
     // {
     //     return Attribute::get(function () {
-    //         // Check if event is free
+    //         // Check if item is free
     //         //if ($this->price == 0) return 'Free';
 
     //         // Format as price
@@ -27,11 +27,11 @@ class ItemController extends Controller
     // }
     
     /**
-     * Display a listing of events
+     * Display a listing of items
      */
     public function index()
     {
-        // Get all items from the database (TODO : paging...)
+        // Get all items from the database ( //TODO : paging...)
         $items = Item::all();
 
         // Pass data into the view
@@ -51,5 +51,26 @@ class ItemController extends Controller
 
         // Pass data into the view
         return view('show_product', ["item" => $item]);
+    }
+
+        /**
+     * Display details of a search using keyword
+     *
+     * @param Request $request HTTP request object
+     */
+    public function search(Request $request)
+    {  
+        //Get the user "keyword" pased via a query string
+        $searchTerm = $request->input("keyword");
+    
+        // Search for products/ items using the search term IF one was provided
+        // ->when() conditonally runs the next bit of code
+        $items = Item::query()->when($searchTerm, function ($query, $search){
+            // Filter by itemName    
+            return $query->where("itemName", "like", "%{$search}%")->get();
+        });
+
+        // Pass data into the view
+        return view('search', ["items" => $items, "searchTerm" => $searchTerm]);
     }
 }
