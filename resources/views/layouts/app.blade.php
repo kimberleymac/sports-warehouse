@@ -13,7 +13,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Swiper JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" >
     <!-- Style Sheet -->
     <link rel="stylesheet" href="style.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -61,14 +61,19 @@
                 <div class="site-logo-search-container">
 
                     <div class="site-logo">
-                        <a href="index.html"><img class="site-logo__img" src="{{ asset('images/logo/sports-warehouse-logo.svg') }}"
-                                alt="sports-warehouse-logo" width="600"></a>
+                        <h1><a href="/"><img class="site-logo__img" src="{{ asset('images/logo/sports-warehouse-logo.svg') }}"
+                                alt="Sports Warehouse" width="600"></a></h1>
                     </div>
 
                     <div class="site-search-bar">
-                        <form action="search" method="get" class="search-bar-form">
+                        <form action="/search" method="get" class="search-bar-form">
                             <label class="search-bar sr-only" for="search">Search Products</label>
-                            <input type="search" id="search" aria-label="Search products" placeholder="Search products">
+                            <input 
+                            type="search"
+                            name="keyword" 
+                            value="{{ request("keyword") }}"
+                            id="search" 
+                            aria-label="Search products" placeholder="Search products">
 
                             <button class="search-button" type="submit" aria-label="Search"><i
                                     class="fa-solid fa-magnifying-glass"></i> <span
@@ -80,15 +85,10 @@
                 </div>
             </div>
             <nav class="product-categories" aria-label="product-categories">
-                <ul class="product-categories__ul">
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">Helmets</a></li>
-                    <li><a href="#">Pants</a></li>
-                    <li><a href="#">Tops</a></li>
-                    <li><a href="#">Balls</a></li>
-                    <li><a href="#">Equipment</a></li>
-                    <li><a href="#">Training gear</a></li>
-                </ul>
+
+                {{-- Navigation categories component --}}
+                <x-nav-categories/>
+
             </nav>
 
         </header>
@@ -107,23 +107,23 @@
                 <section class="footer-site-navigation">
                     <h3>Site Navigation</h3>
                     <ul class="footer-site-navigation__ul">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#">About SW</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">View products</a></li>
+                        <li><a href="/contactus">Contact us</a></li>
+                        <li><a href="/products">View products</a></li>
                         <li><a href="#">Privacy policy</a></li>
                     </ul>
                 </section>
                 <section class="footer-product-categories">
                     <h3>Product Categories</h3>
                     <ul class="footer-product-categories__ul">
-                        <li><a href="#">Shoes</a></li>
-                        <li><a href="#">Helmets</a></li>
-                        <li><a href="#">Pants</a></li>
-                        <li><a href="#">Tops</a></li>
-                        <li><a href="#">Balls</a></li>
-                        <li><a href="#">Equipment</a></li>
-                        <li><a href="#">Training gear</a></li>
+                        <li><a href="/categories/1">Shoes</a></li>
+                        <li><a href="/categories/2">Helmets</a></li>
+                        <li><a href="/categories/3">Pants</a></li>
+                        <li><a href="/categories/4">Tops</a></li>
+                        <li><a href="/categories/5">Balls</a></li>
+                        <li><a href="/categories/6">Equipment</a></li>
+                        <li><a href="/categories/7">Training gear</a></li>
                     </ul>
                 </section>
                 <section class="footer-social-media-links">
@@ -149,11 +149,11 @@
 
         </footer>
         <small class="site-sub-footer">
-            <div class="wrapper-960px sub-footer">
+            <span class="wrapper-960px sub-footer">
                 <span>&copy; Copyright {{ date('Y') }} Sports Warehouse.</span>
                 <span>All rights reserved.</span>
                 <span>Website made by Awesomesauce Design and Kimberley Mackenzie</span>
-            </div>
+            </span>
         </small>
 
 
