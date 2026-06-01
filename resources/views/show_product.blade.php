@@ -3,20 +3,19 @@
 @section('content')
 
             <section class="site-main__section featured-products">
-                <h2 class="site-main__h2">Products</h2>
+                <h2 class="site-main__h2">Product</h2>
                 <div class="featured-products-wrapper">
 
-                    <p>This shows a single product</p>
+                    {{-- <p>This shows a single product</p>
 
-                    <p style="color:red;"> {{ $item->itemName }}</p>
+                    <p style="color:red;"> {{ $item->itemName }}</p> --}}
 
 
-                    {{-- //TODO fix up this part --}}
-                    {{-- @include(partials._item_card) --}}
+                    @include('layouts.partials._single_product_card')
 
                     
 
-
+                </div>
             </section>
 
 @endsection
