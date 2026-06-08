@@ -8,23 +8,6 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    //TODO Fix up this section to automatically add in $ for the products
-    //{{ $item->price }}
-    //{{ $item->price_formatted }
-    /**
-     * Defines a dynamic price_formatted property (Attribute Accessor)
-     * Usage: $item->price_formatted
-     */
-    // protected function priceFormatted(): Attribute
-    // {
-    //     return Attribute::get(function () {
-    //         // Check if item is free
-    //         //if ($this->price == 0) return 'Free';
-
-    //         // Format as price
-    //         return '$' . number_format($this->price, 2);
-    //     });
-    // }
     
     /**
      * Display a listing of items
