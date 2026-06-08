@@ -52,4 +52,4 @@ Route::post('/contactus', [ContactController::class, 'store'])->name('contactus.
 //Categories
 
 // GET /categories/3
-Route::get('/categories/{id}', [CategoryController::class,'show'])->name("categories.show");
+Route::get('/categories/{category:slug}', [CategoryController::class,'show'])->name("categories.show");
