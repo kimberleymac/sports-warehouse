@@ -93,6 +93,10 @@
 
         </header>
 
+        {{-- Alerts --}}
+
+        @include('layouts.partials._flash')
+
         <main class="site-main">
             
             {{-- !! Content Here !! --}}
