@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 //Home
 
@@ -38,6 +39,19 @@ Route::get('/products/{id}', [ItemController::class,'show'])->name("products.sho
 
 // GET /search?keyword=abc
 Route::get('/search', [ItemController::class,'search'])->name("products.search");
+
+
+//POST /products/1/save
+Route::post('/products/{id}/save', [ItemController::class,'save'])->name("products.save");
+
+
+//POST /products/1/save
+Route::post('/products/{id}/unsave', [ItemController::class,'unsave'])->name("products.unsave");
+
+//POST /products/saved
+Route::get('/saved', [ItemController::class,'showSaved'])->name("products.saved");
+
+
 
 // Contact Us
 
