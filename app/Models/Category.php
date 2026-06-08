@@ -23,6 +23,7 @@ class Category extends Model
 
     /**
      * Get items for the category.
+     * One category can have many items
      *
      * @return HasMany Collection of items
      */
