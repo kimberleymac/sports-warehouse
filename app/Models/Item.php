@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
+
 
 class Item extends Model
 {
@@ -67,6 +69,27 @@ class Item extends Model
     //         return '$' . number_format($this->price, 2);
     //     });
     // }
+
+
+    /**
+     * Defines a dynamic is_saved property (attrubute Accessor)
+     * 
+     * Usage: $item->is_saved
+     *
+     * @return Attribute
+     */
+    protected function isSaved(): Attribute
+    {
+        return Attribute::get(function(){
+
+        //Get the current list of 
+        $savedItems = Session::get("saved_items", []);
+
+        //Check if item is saved in the session
+        return in_array($this->itemId, $savedItems);
+
+        });
+    }
 
     //
     /**
