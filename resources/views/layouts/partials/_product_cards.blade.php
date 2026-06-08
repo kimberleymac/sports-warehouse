@@ -12,12 +12,14 @@
             
                 <article class="featured-products__product-card">
                     <a href="{{ route("products.show", $item->itemId) }}" class="product-card">
-
                     <h3 class="product-card__title">{{ $item->itemName }}</h3>
 
                     <img src="{{ $item->image_url }}"
                         alt="{{ $item->itemName }}" width="125"
                         class="product-card__img">
+                        
+                        
+
                     
                         <p class="product-card__price product-price">
                             
@@ -35,9 +37,28 @@
                         <span class="current-price">
                             ${{ $item->price }}
                         </span>
+
+                        
                         @endif
-                    </p>
+                        
+                        </p>
                     </a>
+                    
+                    @if ($item->is_saved)
+                    <form method="post" action="{{ route("products.unsave", $item->itemId)  }}">
+                        @csrf
+                        <button type="submit">
+                            Unsave
+                        </button>
+                    </form>
+                    @else
+                    <form method="post" action="{{ route("products.save", $item->itemId)  }}">
+                        @csrf
+                        <button type="submit">
+                            Save
+                        </button>
+                    </form>
+                    @endif
                 </article>
                 
             
