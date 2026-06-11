@@ -2,7 +2,9 @@
     /* Colours */
     --light-blue: #00ACED;
     --mid-blue: #006989;
+    --light-blue-40: rgb(0, 172, 237, 0.4);
     --dark-blue: #002936;
+    --dark-blue-40: rgb(0, 41, 54, 0.4);
     --black-15: rgba(0, 0, 0, 0.15);
     --black-30: rgba(0, 0, 0, 0.3);
     --border-grey: #D0CFCF;
@@ -241,9 +243,8 @@ nav a {
     color: var(--orange);
 }
 
-
-.fa-cart-shopping,
-.no-of-items {
+/* .no-of-items. */
+.fa-cart-shopping { 
     padding-right: 0.3rem;
 }
 
@@ -708,6 +709,11 @@ input[type="search"]::placeholder {
 
 }
 
+.add-to-cart-button-40{
+    background-color: var(--dark-blue-40);
+
+}
+
 @media screen and (min-width:630px) {
     .product-card {
         width: 100%;
@@ -1155,4 +1161,28 @@ textarea {
         width: 100%;
     }
     
+}
+
+/* Pagination styling */
+
+nav[role="navigation"] {
+    gap: 12px
+}
+
+
+/* Active Button */
+nav[role="navigation"] a{
+    border-color: var(--dark-blue);
+    background-color: var(--dark-blue);
+}
+
+/* Disabled Button */
+nav[role="navigation"] span{
+    border-color: var(--dark-blue);
+    background-color: var(--dark-blue);
+}
+
+nav[role="navigation"] a:hover{
+    border-color: var(--light-blue);
+    background-color: var(--light-blue);
 }
