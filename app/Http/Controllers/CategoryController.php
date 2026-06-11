@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
-     * Display details of a single item
+     * Display details of items in a single category
      *
      * 
      */
@@ -25,6 +25,10 @@ class CategoryController extends Controller
     //     return view('show_category', ["category" => $category, 'items' => $items]);
     // }
 
+    /**
+     *  Display details of a single category
+     *  Updated for slug implementation
+     */
     public function show(Category $category)
     {
         // Find all items in the category
