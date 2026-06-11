@@ -37,7 +37,7 @@ class ItemController extends Controller
         return view('show_product', ["item" => $item]);
     }
 
-        /**
+    /**
      * Display details of a search using keyword
      *
      * @param Request $request HTTP request object
@@ -58,7 +58,6 @@ class ItemController extends Controller
         return view('search', ["items" => $items, "searchTerm" => $searchTerm]);
     }
 
-    //TODO Saved Sessions
     /**
      * Save an item to session memory
      *
@@ -134,6 +133,7 @@ class ItemController extends Controller
         // Pass data into the view
         return view('saved', ["items" => $items]);
     }
+
 
 
 
