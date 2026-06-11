@@ -35,7 +35,6 @@ class OrderController extends Controller
 
         
         // Loop through each item ID and create one order
-        // TODO: Implement registration
         foreach ($savedItemIds as $id){
             Order::create([
                 'orderDate' => now(),
