@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Sports Warehouse Products')
 @section('content')
-    @include('layouts.partials._hero_banner')
-
 
             <section class="site-main__section featured-products">
                 <h2 class="site-main__h2">You have {{ $items->count() }} saved items</h2>
@@ -21,6 +19,9 @@
                     @endif
 
                     {{-- //TODO CTA buttons if items have been saved --}}
+
+                    <a href="/checkout" class="contact-button">
+                    CHECKOUT YOUR STUFFS</a>
 
 
                 </div>
