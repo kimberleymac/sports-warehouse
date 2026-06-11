@@ -693,6 +693,21 @@ input[type="search"]::placeholder {
         "title";
 }
 
+.add-to-cart-button{
+    background-color: var(--light-blue);
+    color: white;
+    
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 1.2rem;
+    height: 1.2rem;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 @media screen and (min-width:630px) {
     .product-card {
         width: 100%;
@@ -1122,6 +1137,7 @@ textarea {
 
 .contact-button {
     background-color: var(--dark-blue);
+    color: white;
     border: 1px white solid;
     margin-top: 1rem;
     border-radius: 5px;

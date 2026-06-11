@@ -11,7 +11,8 @@
     {{-- Product Card --}}
             
                 <article class="featured-products__product-card">
-                    <a href="{{ route("products.show", $item->itemId) }}" class="product-card">
+                    <div class="product-card">
+                    <a href="{{ route("products.show", $item->itemId) }}" >
                     <h3 class="product-card__title">{{ $item->itemName }}</h3>
 
                     <img src="{{ $item->image_url }}"
@@ -47,18 +48,19 @@
                     @if ($item->is_saved)
                     <form method="post" action="{{ route("products.unsave", $item->itemId)  }}">
                         @csrf
-                        <button type="submit">
-                            Unsave
+                        <button type="submit" class="add-to-cart-button" aria-label="remove_from_cart" title="Remove from cart">
+                            -
                         </button>
                     </form>
                     @else
                     <form method="post" action="{{ route("products.save", $item->itemId)  }}">
                         @csrf
-                        <button type="submit">
-                            Save
+                        <button type="submit" class="add-to-cart-button" aria-label="add_to_cart" title="Add to cart">
+                            +
                         </button>
                     </form>
                     @endif
+                </div>
                 </article>
                 
             
