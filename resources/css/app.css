@@ -1,3 +1,12 @@
+/* Import custom style.css */
+@import './style.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CODE BREEZE DELETED */
+
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -10,5 +19,5 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* Import custom style.css */
-@import './style.css';
+/* END OF CODE BREEZE DELETED */
+
