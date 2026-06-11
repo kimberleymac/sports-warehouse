@@ -44,7 +44,7 @@
                             <i class="fa-regular fa-circle"></i>All Products</a>
                     </li>
                     <li class="menu__cart view-cart">
-                        <a href="#">
+                        <a href="/saved">
                             <i class="fa-solid fa-cart-shopping"></i>View Cart</a>
                     </li>
                     <li class="menu__no-items cart-items full-centre">
