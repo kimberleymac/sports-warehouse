@@ -16,7 +16,7 @@
                                 @csrf
                                 <div class="form-row">
                                     <label for="firstName">First name:</label>
-                                    <input type="text" id="firstName" name="firstName" value="{{ old('firstName') }}">
+                                    <input type="text" id="firstName" name="firstName" value="{{ old('firstName') }}" required>
                                     @error('firstName')
                                     <span class="error-message">{{$message}}</span>                                        
                                     @enderror
