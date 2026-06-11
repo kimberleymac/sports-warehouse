@@ -9,7 +9,11 @@
                 <div class="featured-products-wrapper">
 
                     @include('layouts.partials._product_cards')
-                    
+
+                    <div class="pagination w-full flex justify-center pt-5 gap-4">
+                    {{ $items->links() }}
+                    </div>
+
                 </div> 
             </section>
 
