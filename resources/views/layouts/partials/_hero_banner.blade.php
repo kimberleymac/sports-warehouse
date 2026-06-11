@@ -16,7 +16,7 @@
                     <div class="overlay__text full-centre">
                         <h2 class="overlay__title">Sports balls</h2>
                         <p class="overlay__tag">View our brand new range of</p>
-                        <a class="overlay__button" href="/categories/5">Shop Now</a>
+                        <a class="overlay__button" href="/categories/balls">Shop Now</a>
                     </div>
                 </div>
             </section>

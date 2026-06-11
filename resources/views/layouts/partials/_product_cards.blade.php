@@ -12,7 +12,7 @@
             
                 <article class="featured-products__product-card">
                     <div class="product-card">
-                    <a href="{{ route("products.show", $item->itemId) }}" >
+                    <a href="{{ route("products.show", $item) }}" >
                     <h3 class="product-card__title">{{ $item->itemName }}</h3>
 
                     <img src="{{ $item->image_url }}"
@@ -48,7 +48,7 @@
                     @if ($item->is_saved)
                     <form method="post" action="{{ route("products.unsave", $item->itemId)  }}">
                         @csrf
-                        <button type="submit" class="add-to-cart-button" aria-label="remove_from_cart" title="Remove from cart">
+                        <button type="submit" class="add-to-cart-button add-to-cart-button-40" aria-label="remove_from_cart" title="Remove from cart">
                             -
                         </button>
                     </form>
