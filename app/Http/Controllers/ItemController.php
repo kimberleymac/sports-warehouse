@@ -15,26 +15,13 @@ class ItemController extends Controller
      */
     public function index()
     {
-        // Get all items from the database ( //TODO : paging...)
-        $items = Item::all();
+        // Get all items from the database
+        //$items = Item::all();
+        // TODO: Simple pagination
+        $items = Item::simplePaginate(15);
 
         // Pass data into the view
         return view('products', ["items" => $items]);
-    }
-
-    /**
-     * Display details of a single item
-     *
-     * @param integer $id ITEM ID
-     */
-    public function show(int $id)
-    {  
-    
-    // Find item details (404 error if not found)
-        $item = Item::findOrFail($id);
-
-        // Pass data into the view
-        return view('show_product', ["item" => $item]);
     }
 
     /**
@@ -132,6 +119,35 @@ class ItemController extends Controller
 
         // Pass data into the view
         return view('saved', ["items" => $items]);
+    }
+
+    //  /**
+    //  * Display details of a single item
+    //  *
+    //  * @param integer $id ITEM ID
+    //  */
+    // public function show(int $id)
+    // {  
+    
+    // // Find item details (404 error if not found)
+    //     $item = Item::findOrFail($id);
+
+    //     // Pass data into the view
+    //     return view('show_product', ["item" => $item]);
+    // }
+    
+    /**
+     * Display details of a single item
+     * updated for slug implementation
+     * 
+     */
+    public function show(Item $item)
+    {
+
+        // Pass data into the view
+        return view('show_product', [
+            "item" => $item, 
+            ]);
     }
 
 
