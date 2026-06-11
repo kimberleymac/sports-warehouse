@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Str;
+use Illuminate\View\Component;
+use Override;
 
 class Item extends Model
 {
@@ -26,6 +28,7 @@ class Item extends Model
         'description',
         'featured',
         'categoryId',
+        'slug',
     ];
 
     // Cast fields as specific data types
@@ -113,4 +116,34 @@ class Item extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    // TODO How to deal with duplicate names in the database for slug??
+    /**
+     * Creates a slug from the category name
+     *
+     * @return Attribute
+     */
+    protected function itemName(): Attribute
+    {
+        return Attribute::make(
+            set: function($value)
+            {
+                $slug = Str::slug($value);
+
+                return [
+                    'itemName' => $value,
+                    'slug' => $slug,
+                ];
+            }
+        );
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
+
+
 }
