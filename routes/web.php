@@ -35,18 +35,18 @@ Route::get('/products', function () {
 Route::get('/products', [ItemController::class, 'index']);
 
 // GET /products/1
-Route::get('/products/{id}', [ItemController::class,'show'])->name("products.show");
+Route::get('/products/{item:slug}', [ItemController::class,'show'])->name("products.show");
 
 // GET /search?keyword=abc
 Route::get('/search', [ItemController::class,'search'])->name("products.search");
 
 
 // POST /products/1/save
-Route::post('/products/{id}/save', [ItemController::class,'save'])->name("products.save");
+Route::post('/products/{item:slug}/save', [ItemController::class,'save'])->name("products.save");
 
 
 // POST /products/1/save
-Route::post('/products/{id}/unsave', [ItemController::class,'unsave'])->name("products.unsave");
+Route::post('/products/{item:slug}/unsave', [ItemController::class,'unsave'])->name("products.unsave");
 
 // GET /saved
 Route::get('/saved', [ItemController::class,'showSaved'])->name("products.saved");
@@ -94,7 +94,7 @@ Route::get('/categories/{category:slug}', [CategoryController::class,'show'])->n
 
 
 
-// CODE BREEZE ADDED
+// LARAVEL BREEZE ROUTES
 
 use App\Http\Controllers\ProfileController;
 
