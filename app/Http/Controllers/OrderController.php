@@ -33,23 +33,38 @@ class OrderController extends Controller
         // Get the svaed event IDs from the session
         $savedItemIds = Session::get("saved_items", []);
 
-        
-        // Loop through each item ID and create one order
-        foreach ($savedItemIds as $id){
-            Order::create([
-                'orderDate' => now(),
-                'firstName' => $validated['firstName'],
-                'lastName' => $validated['lastName'],
-                'address' => $validated['address'],
-                'contactNumber' => $validated['contactNumber'],
-                'email' => $validated['email'],
-                'creditCardNumber' => $validated['creditCardNumber'],
-                'expiryDate' => $validated['expiryDate'],
-                'nameOnCard' => $validated['nameOnCard'],
-                'csv' => $validated['csv'],
-                'itemId' => $id,
-            ]);
+        // Return error message if there are no items in the cart
+        if (empty($savedItemIds)){
+            return redirect()->back()->with('error', 'No items in cart');
         }
+
+        
+        // Create one order
+        $order = Order::create([
+            'orderDate' => now(),
+            'firstName' => $validated['firstName'],
+            'lastName' => $validated['lastName'],
+            'address' => $validated['address'],
+            'contactNumber' => $validated['contactNumber'],
+            'email' => $validated['email'],
+            'creditCardNumber' => $validated['creditCardNumber'],
+            'expiryDate' => $validated['expiryDate'],
+            'nameOnCard' => $validated['nameOnCard'],
+            'csv' => $validated['csv'],
+        ]);
+
+        // Attach items to the order
+        foreach ($savedItemIds as $id){
+            $item = Item::find($id);
+            if($item){
+                $order->orderItems()->create([
+                    'itemId' => $id,
+                    'quantity' => 1, //Change later to support adding multiple quantities
+                    'price' => $item->salePrice ?? $item->price,
+                ]);
+            }
+        }
+        
         
         // Clear the session (forget the saved items)
         Session::forget("saved_items");
