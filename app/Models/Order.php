@@ -24,13 +24,11 @@ class Order extends Model
         'expiryDate',
         'nameOnCard',
         'csv',
-        'itemId',
     ];
 
     // Cast fields as specific data types
     protected $casts = [
         'orderDate' => 'datetime',
-        'itemId' => 'integer',
     ];
     
     /**

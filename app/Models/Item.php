@@ -106,16 +106,6 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * Get orders for the items.
-     * One item can have many orders.
-     *
-     * @return HasMany Collection of items
-     */
-    public function orders(): HasMany
-    {
-        return $this->hasMany(Order::class);
-    }
 
     // TODO How to deal with duplicate names in the database for slug??
     /**
