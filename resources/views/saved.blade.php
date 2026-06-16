@@ -18,13 +18,17 @@
                     
                     @endif
 
-                    {{-- //TODO CTA buttons if items have been saved --}}
-
-                    <a href="/checkout" class="contact-button">
-                    CHECKOUT YOUR STUFFS</a>
+                    
 
 
                 </div>
+                
             </section>
+            <div>
+            {{-- //TODO CTA buttons if items have been saved --}}
+
+                    <a href="/checkout" class="contact-button">
+                    CHECKOUT YOUR STUFFS</a>
+                </div>
 
 @endsection

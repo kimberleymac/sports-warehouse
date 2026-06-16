@@ -27,8 +27,16 @@
         <nav id="main-menu" class="site-nav" aria-label="site-navigation">
             <div class="wrapper-960px">
                 <ul class="menu">
-                    <li class="menu__item menu__login"><a class="menu__link" href="#"><i
+                    @auth
+                    <li class="menu__last">
+                        @include('layouts.navigation')
+                    </li>
+                    @else
+                    <li class="menu__item menu__login"><a class="menu__link" href="/login"><i
                                 class="fa-solid fa-lock"></i>Login</a></li>
+                    @endauth
+                    
+                                
                     <li class="menu__toggle"><a href="#" aria-label="Open menu"><i class="fas fa-bars"
                                 aria-label="Open menu"></i></a></li>
                     <li class="menu__item">
@@ -52,12 +60,32 @@
                     <li class="menu__no-items cart-items full-centre">
                         <a href="#"><span class="no-of-items"><x-saved-items-count/></span>items</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
 
+        {{-- LARAVEL BREEZE --}}
+        {{-- @auth --}}
+            {{-- User us logged in- show Breeze navigation --}}
+            {{-- @include('layouts.navigation') --}}
+            
+        {{-- @else --}}
+            {{-- User not logged in --}}
+            {{-- <ul>
+                <li class="menu__item menu__login"><a class="menu__link" href="/login"><i
+                class="fa-solid fa-lock"></i>Login</a></li>
+                <li class="menu__item menu__login"><a class="menu__link" href="/register"><i
+                class="fa-solid fa-lock"></i>Register</a></li>
+            </ul> --}}
+        {{-- @endauth --}}
+
+
         <header class="site-header ">
+
+            {{-- //TODO Format Custom Alerts --}}
+            {{-- Alerts --}}
+
+            @include('layouts.partials._flash')
 
             <div class="full-centre">
                 <div class="site-logo-search-container">
@@ -92,18 +120,20 @@
                 <x-nav-categories/>
 
             </nav>
+            
+            
 
         </header>
 
-        {{-- Alerts --}}
-
-        @include('layouts.partials._flash')
+        
 
         <main class="site-main">
             
             {{-- !! Content Here !! --}}
-            
-            @yield('content')
+
+            {{-- BREEZE AUTHENICATION CONTENT --}}
+            {{-- Add a null coalescent when $slot not available  --}}
+            @yield('content', $slot ?? '')
 
              
         </main> 

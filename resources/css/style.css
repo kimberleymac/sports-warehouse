@@ -205,6 +205,11 @@ nav a {
     order: 1;
 }
 
+.menu__last{
+    order: 2;
+    margin-left: auto;
+}
+
 /* The "active" class is added/removed by JS when toggle is clicked */
 .active .menu__item {
     display: block;
@@ -1087,12 +1092,17 @@ input[type="search"]::placeholder {
 
 /* Contact Form Styling */
 
+.contact-form{
+    padding-right: 1rem;
+}
+
 .contact-us-text{
     padding-right: 1rem;
 }
 
 #newsletter-form input[type="checkbox"]{
-    width: auto;
+    width:1rem;
+    aspect-ratio: 1/1;
     margin-right: 0.5rem;
 }
 
@@ -1100,6 +1110,9 @@ input[type="search"]::placeholder {
     padding-left: 2rem;
 }
 
+.form-input{
+    color: black;
+}
 
 .error-message{
     display: block;
@@ -1112,11 +1125,14 @@ input, textarea {
     border: 1px solid white;
     border-radius: 1rem;
     padding-left:0.5rem;
-    width: 25em;
+    width: 25em;color:
+}
+
+.form-label{
+    color: white;
 }
 
 .form-row {
-    color: white;
   margin: 0.5em 0;
 }
 
@@ -1128,11 +1144,11 @@ input, textarea {
 
 textarea {
   margin-top: 0.5rem;
-    display: block;
+  display: block;
   width: 36em;
   min-height: 5.5lh; /* ~5 lines */
   max-width: 100%; 
-  margin-right: 2rem;
+  
 }
 
 .message{
@@ -1160,6 +1176,16 @@ textarea {
     input, textarea {
         width: 100%;
     }
+
+    .contact-form{
+        padding-right:0;
+    }
+    
+}
+
+@media screen and (max-width:900px){
+
+
     
 }
 
