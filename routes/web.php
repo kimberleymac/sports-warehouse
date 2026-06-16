@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ItemController;
@@ -133,3 +134,11 @@ require __DIR__.'/auth.php';
 // });
 
 // require __DIR__.'/auth.php';
+
+
+/**
+ * Admin routes
+ */
+
+// Resource group that defines all of the CRUD actions/endpoints
+Route::resource("admin/categories", AdminCategoryController::class)->middleware("auth")->names("admin.categories");
