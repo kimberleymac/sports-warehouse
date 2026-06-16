@@ -37,8 +37,8 @@ class Order extends Model
      *
      * @return HasMany Collection of items
      */
-    public function items(): HasMany
+    public function orderItems(): HasMany
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(OrderItem::class, 'orderId');
     }
 }
