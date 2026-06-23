@@ -1125,7 +1125,7 @@ input, textarea {
     border: 1px solid white;
     border-radius: 1rem;
     padding-left:0.5rem;
-    width: 25em;color:
+    width: 25em;
 }
 
 .form-label{
@@ -1211,4 +1211,227 @@ nav[role="navigation"] span{
 nav[role="navigation"] a:hover{
     border-color: var(--light-blue);
     background-color: var(--light-blue);
+}
+
+/* ADMIN SECTION */
+
+/* Admin navigation */
+
+.admin-navigation {
+    background-color: var(--dark-blue);
+    color: white;
+    max-width: 960px;
+    width: 100%;
+    padding: 1rem 1.2rem;
+}
+
+.admin-navigation__ul {
+    font-size: var(--body);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.admin-navigation__ul>li {
+    box-sizing: border-box;
+    min-width: 8.5em;
+    border: solid 1px var(--light-blue);
+    border-radius: 5px;
+    padding: 0.5rem;
+
+}
+
+.admin-navigation__ul li:hover,
+.admin-navigation__ul li:focus {
+    background-color: var(--light-blue);
+
+}
+
+@media screen and (min-width:645px) {
+
+    .admin-navigation__ul li:hover,
+    .admin-navigation__ul li:focus {
+        background-color: transparent;
+
+    }
+
+    .admin-navigation {
+        border-radius: 50px 0px 0px 50px;
+    }
+
+    .admin-navigation__ul li a {
+        padding: 0.3rem 1.2rem 0.3rem 0.6rem;
+        border-radius: 50px 0px 0px 50px;
+
+    }
+
+    .admin-navigation__ul {
+        font-size: var(--body);
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .admin-navigation__ul>li {
+        border: none;
+        min-width: 0;
+        padding: 0.3rem 1.2rem 0.3rem 1rem;
+        border-radius: 0;
+    }
+
+
+    .admin-navigation__ul li a:hover,
+    .admin-navigation__ul li a:focus {
+        background-color: var(--light-blue);
+
+    }
+
+}
+
+@media screen and (min-width:960px) {
+
+    .admin-navigation {
+        justify-self: center;
+        max-width: 960px;
+
+    }
+}
+
+/* Admin section table formatting */
+
+.admin-centre-table{
+    display: flex;
+    justify-content: center;
+}
+.admin-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-heading__button{
+
+    color: white;
+    background-color: var(--mid-blue);
+
+    font-family: var(--site-font);
+    font-weight: 400;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 5px;
+    margin-right: 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-heading__button:hover,
+.admin-heading__button:focus {
+    background-color: var(--orange);
+}
+
+
+
+.table-actions{
+    display: flex;
+}
+
+
+.action-buttons {
+    color: white;
+    background-color: var(--mid-blue);
+
+    font-family: var(--site-font);
+    font-weight: 400;
+    height: 2rem;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    margin-right: 0.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-buttons:hover,
+.action-buttons:focus {
+    background-color: var(--orange);
+}
+
+/* Checkout formatting */
+
+.checkout-button{
+    margin-top: 1rem;
+    display: inline-block;
+
+    color: white;
+    background-color: var(--mid-blue);
+
+    font-family: var(--site-font);
+    font-weight: 400;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-button:hover,
+.checkout-button:focus {
+    background-color: var(--orange);
+}
+
+.checkout-form{
+    margin-top: 2rem;
+}
+
+.heading_h3 {
+    background-color: white;
+    color: black;
+    font-size: var(--section-heading);
+    border-radius: 50px 0 0 50px;
+    padding: 0.8rem 0 0.8rem 1.6rem;
+    margin: 2rem 0;
+}
+
+.heading_h4 {
+    background-color: white;
+    color: black;
+    font-size: var(--product-card-heading);
+    border-radius: 50px 0 0 50px;
+    padding: 0.8rem 0 0.8rem 1.6rem;
+    margin: 2rem 0;
+}
+
+.confirmation-button{
+    margin-top: 1rem;
+    display: inline-block;
+
+    color: white;
+    background-color: var(--mid-blue);
+
+    font-family: var(--site-font);
+    font-weight: 400;
+    height: 2rem;
+    width: fit-content;
+    padding: 1rem;
+    margin-left: 1.6rem;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-button:hover,
+.confirmation-button:focus {
+    background-color: var(--orange);
 }
