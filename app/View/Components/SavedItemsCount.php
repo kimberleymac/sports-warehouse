@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\Component;
 
 class SavedItemsCount extends Component
@@ -34,7 +35,10 @@ class SavedItemsCount extends Component
         // $count = Item::where('saved, 1)->count();
 
         // count items saved to the session
-        $count = count(session('saved_items', []));
+        // $count = count(session('saved_items', []));
+
+        // Refactored for cart quantities
+        $count = collect(Session::get('cart', []))->sum('quantity');
 
         return view('components.saved-items-count', ['count'=> $count]);
     }
