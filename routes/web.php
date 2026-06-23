@@ -46,8 +46,11 @@ Route::get('/search', [ItemController::class,'search'])->name("products.search")
 Route::post('/products/{item:slug}/save', [ItemController::class,'save'])->name("products.save");
 
 
-// POST /products/1/save
+// POST /products/1/unsave
 Route::post('/products/{item:slug}/unsave', [ItemController::class,'unsave'])->name("products.unsave");
+
+// PUT update quantity
+Route::put('products/{item:slug}/update-quantity', [ItemController::class, 'updateQuantity'])->name('products.update-quantity');
 
 // GET /saved
 Route::get('/saved', [ItemController::class,'showSaved'])->name("products.saved");
