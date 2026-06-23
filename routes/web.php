@@ -63,14 +63,22 @@ Route::get('/saved', [ItemController::class,'showSaved'])->name("products.saved"
 Route::get('/checkout', function (){
     
     // Get the saved item IDs from the session
-    $savedItemIds = Session::get("saved_items", []);
+    $cart = Session::get("cart", []);
+
+    // Get item Ids
+    $itemIds = array_keys($cart);
+
+    // Fetch items
+    $items = Item::whereIn("itemId", $itemIds)->get();
 
     // OPTIONAL: Get the actual items (from DB) if you want the display titles
-    $items = Item::whereIn("itemId", $savedItemIds)->get();
+    foreach ($items as $item) {
+        $item->quantity = $cart[$item->itemId]['quantity'] ?? 1;
+    }
 
     // Pass the data into the view
-    // ["this name" => $variable] the name you want in the view context, i.e will be called savedItems in the checkout view
-    return view('checkout', ["savedItems" => $items]);
+    // ["this name" => $variable] the name you want in the view context, i.e will be called items in the checkout view
+    return view('checkout', ["items" => $items]);
 
 })->name("products.checkout");
 
