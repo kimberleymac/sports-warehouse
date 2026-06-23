@@ -40,7 +40,7 @@ class CategoryController extends Controller
     {
         // Validate input data
         $validated = $request->validate([
-            'categoryName'=> 'required|unique:categories|min:3|max:50',
+            'categoryName'=> 'required|unique:categories,categoryName|min:3|max:50',
         ]);
 
         // Create the category
@@ -56,7 +56,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        // TODO use this to show long category descriptions like with item descriptions where you can click show and see the full description etc...
+        // Use this to show long category descriptions where you can click show and see the full description etc...
     }
 
     /**
@@ -74,8 +74,9 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         // Validate input data
+        // Can't use unique here as it will cause error
         $validated = $request->validate([
-            'categoryName'=> 'required|unique:categories,categoryName|min:3|max:50',
+            'categoryName'=> 'required|min:3|max:50',
         ]);
 
         // Update the category
@@ -84,7 +85,7 @@ class CategoryController extends Controller
 
         // Redirect the user
         // NOTE: Can add in category name to success message too
-        return redirect()->route("admin.categories.index")->with("success", "category updated!");
+        return redirect()->route("admin.categories.index")->with("success", "category {$category->categoryName} updated!");
     }
 
     /**
@@ -99,7 +100,9 @@ class CategoryController extends Controller
         // If there are events - redirect with error
         if ($hasItems)
         {
-            return redirect()->route("admin.categories.index")->with("error", "category linked items!");
+            return redirect()
+            ->route("admin.categories.index")
+            ->with("error", "Cannot delete this category: category has linked items!");
         }
 
         
