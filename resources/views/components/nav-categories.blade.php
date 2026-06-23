@@ -11,12 +11,13 @@
 </ul> --}}
         
 {{-- When you are using the route function, it does not necessarily need the specific ID for the route, you can use the whole category and it will take the ID from that --}}
+<nav class="product-categories" aria-label="product-categories">
+    <ul class="product-categories__ul">
+        @foreach ($categories as $category)
+        
+        <li><a href="{{ route("categories.show", $category) }}">{{$category->categoryName}}</a></li>
+        
+        @endforeach 
+    </ul>
 
-<ul class="product-categories__ul">
-     @foreach ($categories as $category)
-    
-     <li><a href="{{ route("categories.show", $category) }}">{{$category->categoryName}}</a></li>
-    
-     @endforeach 
-</ul>
-       
+</nav>

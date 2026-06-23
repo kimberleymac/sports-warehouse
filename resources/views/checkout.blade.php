@@ -1,11 +1,18 @@
 @extends('layouts.app')
 @section('title', 'Sports Warehouse Checkout')
 @section('content')
-    @include('layouts.partials._hero_banner')
 
 
             <section class="site-main__section featured-products">
-                <h2 class="site-main__h2">Checkout "{{ $savedItems->count() }}" items</h2>
+                
+                <h2 class="site-main__h2">Checkout items</h2>
+
+                <div class="">
+
+                <div>
+                @include('layouts.partials._product_cards_checkout', ['items'=> $items])
+
+                
                 <div class="">
 
                     {{-- Display errors --}}
@@ -18,8 +25,13 @@
                         </ul>
                     </div>
                     @endif
+                
+                </div>
+
                 <div class="brand-partnerships__imgs checkout-form">
+                    
                     <div id="newsletter-form">
+
                         <form action="/checkout" method="post">
                             @csrf
                                 <div class="form-row">
@@ -86,9 +98,6 @@
                                     @enderror
                                 </div>
 
-                                {{-- show the items in the cart --}}
-                                <p class="form-row form-label">You have {{ $savedItems->count() }} items in your cart.</p>
-
                                 <div class="form-row">
 
                                     <button type="submit" name="submitRegister" class="contact-button">Complete Checkout</button>
@@ -100,7 +109,9 @@
                                 </div>
                         </form>
                     </div>
-                </div>    
-            </section>
+                </div>
+            
+            </div>    
+        </section>
 
 @endsection
