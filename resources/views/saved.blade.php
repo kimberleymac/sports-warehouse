@@ -46,7 +46,7 @@
         <span class="text-gray-600">Total</span>
 
         <span class="text-lg font-bold text-gray-900">
-            ${{ price_formatted($total,2)}}
+            ${{ number_format($total,2)}}
         </span>
     </div>
 
