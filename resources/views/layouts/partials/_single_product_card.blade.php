@@ -45,7 +45,10 @@
 
                     {{-- Button --}}
 
-                    <a class="button__cart" href="#">Add to Cart</a>
+                    <form method="post" class="button__cart" action="{{ route('products.save', $item) }}">
+                        @csrf
+                        <button type="submit" title="Add to cart">Add to cart</button>
+                    </form>
 
 
             
