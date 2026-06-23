@@ -8,6 +8,7 @@
     
     @foreach ($items as $item)
 
+
     {{-- Product Card --}}
             
                 <article class="featured-products__product-card">
@@ -45,20 +46,45 @@
                         </p>
                     </a>
                     
-                    @if ($item->is_saved)
-                    <form method="post" action="{{ route("products.unsave", $item->itemId)  }}">
+                    {{-- @php
+                        $cart = Session::get('cart',[]);
+                        $itemId = $item->itemId ?? null;
+                        $inCart = isset($cart[$item->$itemId]);
+                    @endphp
+                    
+                    @if ($inCart)
+                    <form method="post" action="{{ route("products.unsave", $item)  }}">
                         @csrf
                         <button type="submit" class="add-to-cart-button add-to-cart-button-40" aria-label="remove_from_cart" title="Remove from cart">
                             -
                         </button>
                     </form>
                     @else
-                    <form method="post" action="{{ route("products.save", $item->itemId)  }}">
+                    <form method="post" action="{{ route("products.save", $item)  }}">
                         @csrf
                         <button type="submit" class="add-to-cart-button" aria-label="add_to_cart" title="Add to cart">
                             +
                         </button>
                     </form>
+                    @endif --}}
+
+                    {{-- Check if item is in cart + Add/Remove button --}}
+                    @php
+                        $cart = Session::get('cart', []);
+                        $itemId = $item->itemId ?? null;
+                        $inCart = $itemId && isset($cart[$itemId]);
+                    @endphp
+
+                    @if ($inCart)
+                        <form method="post" action="{{ route('products.unsave', $item) }}">
+                            @csrf
+                            <button type="submit" class="add-to-cart-button add-to-cart-button-40" title="Remove from cart">-</button>
+                        </form>
+                    @else
+                        <form method="post" action="{{ route('products.save', $item) }}">
+                            @csrf
+                            <button type="submit" class="add-to-cart-button" title="Add to cart">+</button>
+                        </form>
                     @endif
                 </div>
                 </article>
