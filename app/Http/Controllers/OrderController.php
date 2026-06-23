@@ -30,13 +30,13 @@ class OrderController extends Controller
         ]);
 
         
-        // Get the svaed event IDs from the session
-        $savedItemIds = Session::get("saved_items", []);
+        // Get the svaed    IDs from the session
+        // $savedItemIds = Session::get("saved_items", []);
 
         // Return error message if there are no items in the cart
-        if (empty($savedItemIds)){
-            return redirect()->back()->with('error', 'No items in cart');
-        }
+        // if (empty($savedItemIds)){
+        //     return redirect()->back()->with('error', 'No items in cart');
+        // }
 
         
         // Create one order
@@ -54,26 +54,43 @@ class OrderController extends Controller
         ]);
 
         // Attach items to the order
-        foreach ($savedItemIds as $id){
+        // foreach ($savedItemIds as $id){
+        //     $item = Item::find($id);
+        //     if($item){
+        //         $order->orderItems()->create([
+        //             'itemId' => $id,
+        //             'quantity' => 1, //Change later to support adding multiple quantities
+        //             'price' => $item->salePrice ?? $item->price,
+        //         ]);
+        //     }
+        // }
+
+        // Refactored for cart quantities
+        // Get current cart
+        $cart = Session::get('cart', []);
+
+        // Attach items to the order from the cart
+        foreach ($cart as $id => $data){
             $item = Item::find($id);
             if($item){
                 $order->orderItems()->create([
                     'itemId' => $id,
-                    'quantity' => 1, //Change later to support adding multiple quantities
+                    'quantity' => $data['quantity'], //Change later to support adding multiple quantities
                     'price' => $item->salePrice ?? $item->price,
                 ]);
             }
-        }
+        }  
         
         
-        // Clear the session (forget the saved items)
-        Session::forget("saved_items");
+        // Clear the session (clear the cart after an order is processed)
+        Session::forget("cart");
 
 
 
         // Redirect with a success message 
-        //OR load a "confirmation" view with checkout/ order details
-        return redirect('/')->with("success", "Checkout completed! 🛒");
+        // OR load a "confirmation" view with checkout/ order details
+       //return redirect('/')->with("success", "Checkout completed! 🛒");
+       return view('confirmation', compact('order'))->with("success", "Checkout completed! 🛒");
 
 
     }
