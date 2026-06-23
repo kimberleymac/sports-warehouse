@@ -114,12 +114,21 @@
 
                 </div>
             </div>
-            <nav class="product-categories" aria-label="product-categories">
 
-                {{-- Navigation categories component --}}
-                <x-nav-categories/>
+            {{-- Categories Navigation --}}
+            @if((!request()->routeIs('admin.*') && !request()->routeIs('dashboard')))
+            <x-nav-categories/>
+            @endif
 
-            </nav>
+
+
+            
+            {{-- Admin Navigation --}}
+            @auth
+                @if (request()->routeIs('admin.*') || request()->routeIs('dashboard'))
+                <x-nav-admin/>
+                @endif
+            @endauth
             
             
 
