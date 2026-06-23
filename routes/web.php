@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\ItemController as AdminItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ItemController;
@@ -151,5 +152,22 @@ require __DIR__.'/auth.php';
  * Admin routes
  */
 
-// Resource group that defines all of the CRUD actions/endpoints
-Route::resource("admin/categories", AdminCategoryController::class)->middleware("auth")->names("admin.categories");
+// Resource group that defines all of the CRUD actions/endpoints for categories
+//Route::resource("admin/categories", AdminCategoryController::class)->middleware("auth")->names("admin.categories");
+
+// Resource group that defines all of the CRUD actions/endpoints for items
+//Route::resource("admin/items", AdminItemController::class)->middleware("auth")->names("admin.items");
+
+// Updates resouce CRUD actions/endpoints with admin role using middleware 'admin'
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::resource('categories', AdminCategoryController::class)->names('admin.categories');
+    Route::resource('items', AdminItemController::class)->names('admin.items');
+});
+
+
+// For debugging
+// Route::get('/clear-cart', function() {
+//     Session::forget('cart');
+//     Session::forget('saved_items');
+//     return 'Cart cleared successfully';
+// });
