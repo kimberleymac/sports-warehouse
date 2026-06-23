@@ -29,10 +29,10 @@
                         @if ($item->salePrice)
                         {{-- SALE formatting --}}
 
-                        <span class="discounted-price"><ins>${{ $item->salePrice }}</ins></span>
+                        <span class="discounted-price"><ins>{{ $item->sale_price_formatted }}</ins></span>
 
                         <span class="original-price"><span class="original-price__was">was</span><del
-                            class="original-price__del">${{ $item->price }}</del></span>
+                            class="original-price__del">{{ $item->price_formatted }}</del></span>
                         
                         @else
                         {{-- Normal price formatting --}}

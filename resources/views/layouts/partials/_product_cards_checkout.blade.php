@@ -39,7 +39,7 @@
                 </div>
 
                 <span class="font-medium text-gray-900">
-                    ${{ $lineTotal }}
+                    ${{ number_format($lineTotal,2) }}
                 </span>
 
             </div>
@@ -53,7 +53,7 @@
 
         <div class="flex justify-between text-gray-600">
             <span>Subtotal</span>
-            <span>${{ $total }}</span>
+            <span>${{ number_format($total,2) }}</span>
         </div>
 
         <div class="flex justify-between text-gray-600">
@@ -63,7 +63,7 @@
 
         <div class="flex justify-between border-t border-gray-200 pt-4 text-lg font-bold text-gray-900">
             <span>Total</span>
-            <span>${{ $total }}</span>
+            <span>${{ number_format($total,2) }}</span>
         </div>
 
     </div>

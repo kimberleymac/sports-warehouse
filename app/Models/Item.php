@@ -56,7 +56,7 @@ class Item extends Model
         });
     }
 
-        //TODO Fix up this section to automatically add in $ for the products
+    //TODO Fix up this section to automatically add in $ for the products
     //{{ $item->price }}
     //{{ $item->price_formatted }
     /**
@@ -67,12 +67,56 @@ class Item extends Model
     // {
     //     return Attribute::get(function () {
     //         // Check if item is free
-    //         //if ($this->price == 0) return 'Free';
+    //         if ($this->price == 0) return 'Free';
 
     //         // Format as price
     //         return '$' . number_format($this->price, 2);
     //     });
     // }
+
+    /**
+     * Accessor: $item->price_formatted
+     */
+    protected function priceFormatted(): Attribute
+    {
+        return Attribute::get(function () {
+            return $this->formatPrice($this->price);
+        });
+    }
+
+    /**
+     * Accessor: $item->sale_price_formatted
+     */
+    protected function salePriceFormatted(): Attribute
+    {
+        return Attribute::get(function () {
+            return $this->formatSalePrice($this->salePrice);
+        });
+    }
+
+    /**
+     * Regular price formatter (always shows price)
+     */
+    private function formatPrice($amount): string
+    {
+        $amount = (float) $amount;
+        return '$' . number_format($amount, 2);
+    }
+
+    /**
+     * Sale price formatter - only shows if there's a real sale price
+     */
+    private function formatSalePrice($amount): ?string
+    {
+        $amount = (float) $amount;
+
+        // Return null if no sale price (null or 0)
+        if ($amount <= 0) {
+            return null;
+        }
+
+        return '$' . number_format($amount, 2);
+    }
 
 
     /**

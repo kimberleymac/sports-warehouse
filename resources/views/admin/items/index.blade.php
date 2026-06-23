@@ -137,12 +137,12 @@
 
                     {{-- Price --}}
                     <td class="px-6 py-4 text-sm text-gray-700">
-                        ${{ ($item->price) }}
+                        {{ ($item->price_formatted) }}
                     </td>
 
                     {{-- Sale Price --}}
                     <td class="px-6 py-4 text-sm text-gray-700">
-                        ${{ ($item->salePrice) }}
+                        {{ ($item->sale_price_formatted) }}
                     </td>
 
                     {{-- Featured --}}
